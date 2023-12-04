@@ -1,23 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-func somaUltimosDigitos(ponteiroInteiro *int) {
-	if ponteiroInteiro == nil {
+func atualizaMediaComPi(ponteiroFloat *float64) {
+	if ponteiroFloat == nil {
 		fmt.Println("Erro: Ponteiro nulo.")
 		return
 	}
-	valor := *ponteiroInteiro
-	ultimoDigito := valor % 10
-	valor /= 10
-	penultimoDigito := valor % 10
-	soma := ultimoDigito + penultimoDigito
-	*ponteiroInteiro = soma
+	valorAtual := *ponteiroFloat
+	media := (valorAtual + math.Pi) / 2
+	*ponteiroFloat = media
 }
 func main() {
-	var minhaVariavel int
-	fmt.Print("Digite um número inteiro: ")
+	var minhaVariavel float64
+	fmt.Print("Digite um número float64: ")
 	fmt.Scan(&minhaVariavel)
-	somaUltimosDigitos(&minhaVariavel)
-	fmt.Printf("O novo valor é: %d\n", minhaVariavel)
+	atualizaMediaComPi(&minhaVariavel)
+	fmt.Printf("O novo valor é: %f\n", minhaVariavel)
 }
